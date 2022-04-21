@@ -11,10 +11,11 @@
       >Prev</a>
     </li>
 
-    <li 
+    <ng-container *ngFor="let image of images;let i = index">
+      <li 
       class="page-item" 
-      *ngFor="let image of images;let i = index"
-      [ngClass]="{active: i == currentPage}"  
+      [ngClass]="{active: i == currentPage}"
+      *ngIf="checkWindowIndex(i)"
     >
       <a 
         class="page-link"
@@ -23,6 +24,8 @@
         {{i + 1}}
       </a>
     </li>
+    </ng-container>
+ 
 
     <li 
       class="page-item"
@@ -38,6 +41,9 @@
 </div>
 
 <div class="">
-  <h4>{{images[currentPage].title}}</h4>
+  <h4
+  
+  [appClasse]="{'active' : true}"
+  >{{images[currentPage].title}}</h4>
   <img [src]="images[currentPage].url" alt="">
 </div>
