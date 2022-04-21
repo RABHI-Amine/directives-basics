@@ -47,3 +47,8 @@
   >{{images[currentPage].title}}</h4>
   <img [src]="images[currentPage].url" alt="">
 </div>
+
+<ul *appTime="5; let name = name">
+  <li>Hi there</li>
+  <h1>{{name}}</h1>
+</ul>
